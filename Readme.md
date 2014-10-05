@@ -5,8 +5,20 @@
 Before you can use this tool for importing Openstreetmap data you need to install:
 
 1. postgresql
-2. postgis
-3. pgrouting
+2. postgis + pgrouting
+
+for debian :
+    sudo apt-get install postgresql-9.4-pgrouting
+    createuser myuser
+    createdb myrouting
+    alter user myuser password 'mypass';
+    ALTER USER myuser WITH SUPERUSER;
+
+in the deta base :
+
+    CREATE EXTENSION postgis;
+    CREATE EXTENSION pgrouting;
+    
 4. boost
 5. expat
 6. cmake
@@ -34,7 +46,8 @@ make install
 Start the program like this:
 
 ```
-osm2pgrouting -file your-OSM-XML-File.osm -conf mapconfig.xml -dbname routing -user postgres -clean
+osm2pgrouting -file your-OSM-XML-File.osm -conf mapconfig.xml -dbname routing -user myser -password mypass -clean
+
 ```
 
 A complete list of arguments are:

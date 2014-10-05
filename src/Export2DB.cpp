@@ -49,8 +49,9 @@ int Export2DB::connect()
 	ConnStatusType type =PQstatus(mycon);
 		if(type==CONNECTION_BAD)
 		{
-			cout << "connection failed"<< endl;
-			return 1;
+                  cout << conninf.c_str() << endl;
+                  cout << "connection failed"<< endl;
+                  return 1;
 		}
 		else
 		{
